@@ -44,8 +44,12 @@ function Particle(x, y, directionX, directionY, size, colour) {
 Particle.prototype.draw = function() {
   ctx.beginPath();
   ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+  // ctx.fillRect(this.x, this.y, this.size, this.size);
   ctx.fillStyle = this.colour;
+  // ctx.fillStyle = 'black';
   ctx.fill();
+  ctx.strokeStyle = 'white';
+  ctx.stroke();
 }
 
 // Particle movement
