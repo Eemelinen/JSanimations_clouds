@@ -6,10 +6,13 @@ ctx.canvas.height = window.innerHeight;
 let particleArray = [];
 
 let colours = [
-  'white',
-  'rgba(255, 255, 255, 0.3)',
-  'rgba(173, 216, 230, 0.8)',
-  'rgba(211, 211, 211, 0.8)'
+  // 'salmon',
+  // 'red',
+  'rgba(184, 85, 71, 0.5)'
+  // 'white',
+  // 'rgba(255, 255, 255, 0.3)',
+  // 'rgba(173, 216, 230, 0.8)',
+  // 'rgba(211, 211, 211, 0.8)'
 ];
 
 const maxSize = 40;
@@ -26,7 +29,7 @@ window.addEventListener('mousemove',
   function(event) {
     mouse.x = event.x;
     mouse.y = event.y;
-    console.log(mouse);
+    // console.log(mouse);
   }
 );
 
@@ -48,7 +51,7 @@ Particle.prototype.draw = function() {
   ctx.fillStyle = this.colour;
   // ctx.fillStyle = 'black';
   ctx.fill();
-  ctx.strokeStyle = 'white';
+  ctx.strokeStyle = 'rgba(212, 75, 59, 0.3)';
   ctx.stroke();
 }
 
@@ -82,7 +85,7 @@ Particle.prototype.update = function() {
 
 function init() {
   particleArray = [];
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 80; i++) {
     let size = 0;
     let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
     let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
