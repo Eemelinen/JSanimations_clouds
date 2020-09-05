@@ -31,7 +31,7 @@ window.addEventListener('mousemove',
 );
 
 // Constructor function
-function Particle(x, y, directionX, directionY, size, color) {
+function Particle(x, y, directionX, directionY, size, colour) {
   this.x = x;
   this.y = y;
   this.directionX = directionX;
@@ -43,8 +43,8 @@ function Particle(x, y, directionX, directionY, size, color) {
 // Draw method
 Particle.prototype.draw = function() {
   ctx.beginPath();
-  ctx.arc(this.x, this.y, this.size, 0, MathPi * 2, false);
-  ctx.fillStyle = this.color;
+  ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+  ctx.fillStyle = this.colour;
   ctx.fill();
 }
 
@@ -89,3 +89,23 @@ function init() {
   }
 }
 
+function animate() {
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  for (let i = 0; i < particleArray.length; i++) {
+    particleArray[i].update();
+  }
+}
+init();
+animate();
+
+// handle resize
+window.addEventListener('resize', function() {
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+});
+
+setInterval(function() {
+  mouse.x = undefined;
+  mouse.y = undefined;
+}, 1000);
